@@ -27,10 +27,10 @@ class HistoryActivity : AppCompatActivity() {
     var listError: List<GlucoseEntity>? = null
     var listExpired: List<GlucoseEntity>? = null
     var listCalibration: List<GlucoseEntity>? = null
-    private var tabLayout: TabLayout? = null
-    private var startDate: Date? = null
-    private var endDate: Date? = null
-    private var etDeviceSn: EditText? = null
+    var tabLayout: TabLayout? = null
+    var startDate: Date? = null
+    var endDate: Date? = null
+    var etDeviceSn: EditText? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history)
@@ -78,7 +78,7 @@ class HistoryActivity : AppCompatActivity() {
         })
     }
 
-    private fun searchHistory() {
+    fun searchHistory() {
         val deviceSn = etDeviceSn!!.getText().toString()
         LogUtils.d("startDate :$startDate, endDate :$endDate")
         val history = CgmManager.getInstance().getHistory(deviceSn, startDate, endDate)
@@ -92,10 +92,7 @@ class HistoryActivity : AppCompatActivity() {
         val tabId = tabLayout!!.selectedTabPosition
         when (tabId) {
             0 -> {
-                mListHistory!!.setAdapter(HistoryAdapter(
-                    this@HistoryActivity,
-                    listGlucose ?: listOf()
-                ))
+                mListHistory!!.setAdapter(HistoryAdapter(this@HistoryActivity, listGlucose ?: listOf()))
             }
             1 -> {
                 mListHistory!!.setAdapter(HistoryAdapter(this@HistoryActivity, listStartUp ?: listOf()))
@@ -162,7 +159,7 @@ class HistoryActivity : AppCompatActivity() {
         })
     }
 
-    private fun selectDate(textView: TextView, type: Int) {
+    fun selectDate(textView: TextView, type: Int) {
         val ca = Calendar.getInstance()
         val mYear = ca[Calendar.YEAR]
         val mMonth = ca[Calendar.MONTH]
