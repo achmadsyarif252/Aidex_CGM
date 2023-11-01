@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="30dp"
+    android:layout_marginTop="30dp"
+    android:layout_marginRight="30dp"
+    android:orientation="vertical"
+    tools:context=".CgmActivity">
+
+    <TextView
+        android:id="@+id/txt_broadcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Device Broadcast Information" />
+
+    <TextView
+        android:id="@+id/txt_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Return Result" />
+
+    <TextView
+        android:id="@+id/et_sn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Device SN: BH0002" />
+
+    <TextView
+        android:id="@+id/txt_pair_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pairing Status:" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_pair"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pair" />
+
+        <Button
+            android:id="@+id/btn_unpair"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Unpair"
+            android:textColor="#FF0000" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_newsensor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="New Sensor" />
+
+        <Button
+            android:id="@+id/btn_oldsensor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Old Sensor" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_calibrate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calibrate" />
+
+    <Button
+        android:id="@+id/btn_setDeviceTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Device Time" />
+
+    <Button
+        android:id="@+id/btn_broadcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Current Broadcast Information" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_history_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter Number"
+            android:inputType="number"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/btn_getHistory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Get Blood Glucose Records" />
+
+        <Button
+            android:id="@+id/btn_getHistory_all"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Get Raw Records" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="History Information" />
+
+</LinearLayout>

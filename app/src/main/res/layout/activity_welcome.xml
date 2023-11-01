@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".WelcomeActivity">
+
+    <com.syarif.aidex_cgm.view.ScrollTextView
+        android:id="@+id/txt_message"
+        style="@style/txtDisyplay" />
+    
+    <Button
+        android:id="@+id/btn_permission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/selector_btn_main"
+        android:text="@string/content_permission_request"
+        android:textColor="@color/white">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_init"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/selector_btn_main"
+        android:text="@string/content_sdk_init"
+        android:textColor="@color/white">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/selector_btn_main"
+        android:enabled="false"
+        android:text="@string/content_next_page"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btn_next_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:visibility="gone"
+        android:background="@drawable/selector_btn_main"
+        android:enabled="false"
+        android:text="@string/content_next_page_error"
+        android:textColor="@color/white" />
+
+</LinearLayout>
