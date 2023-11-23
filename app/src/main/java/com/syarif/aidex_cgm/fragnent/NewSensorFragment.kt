@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.syarif.aidex_cgm.R
+import com.syarif.aidex_cgm.databinding.FragNewSensorBinding
 
 
 class NewSensorFragment : Fragment() {
@@ -13,8 +13,9 @@ class NewSensorFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.frag_new_sensor, null)
+    ): View {
+        val binding = FragNewSensorBinding.inflate(layoutInflater)
+        return binding.root
     }
 }
 

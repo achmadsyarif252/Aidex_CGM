@@ -7,22 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.syarif.aidex_cgm.PairActivity
-import com.syarif.aidex_cgm.R
+import com.syarif.aidex_cgm.databinding.FragCmgsEmptyBinding
 
 
 class NoCgmsFragment : Fragment() {
+    private lateinit var binding :FragCmgsEmptyBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view: View = inflater.inflate(R.layout.frag_cmgs_empty, null)
-        view.findViewById<View>(R.id.btn_pair).setOnClickListener {
+    ): View {
+        binding = FragCmgsEmptyBinding.inflate(layoutInflater)
+        binding.btnPair.setOnClickListener {
             startActivity(
                 Intent(context, PairActivity::class.java)
             )
         }
-        return view
+        return binding.root
     }
 }
 

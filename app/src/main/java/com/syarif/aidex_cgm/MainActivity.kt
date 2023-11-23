@@ -34,13 +34,13 @@ import com.syarif.aidex_cgm.fragnent.WarmUpCgmsFragment
 import java.util.Date
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    var glucosePanelFragment: GlucosePanelFragment? = null
-    var warmUpCgmsFragment: WarmUpCgmsFragment? = null
-    var newSensorFragment: NewSensorFragment? = null
-    var noCgmsFragment: NoCgmsFragment? = null
-    var mFragmentManager: FragmentManager? = null
+    private var glucosePanelFragment: GlucosePanelFragment? = null
+    private var warmUpCgmsFragment: WarmUpCgmsFragment? = null
+    private var newSensorFragment: NewSensorFragment? = null
+    private var noCgmsFragment: NoCgmsFragment? = null
+    private var mFragmentManager: FragmentManager? = null
     private lateinit var binding: ActivityMain2Binding
-    var isTask = true
+    private var isTask = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
