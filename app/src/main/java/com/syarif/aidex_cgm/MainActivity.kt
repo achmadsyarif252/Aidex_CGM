@@ -114,7 +114,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             )
 
             R.id.btn_getInfo -> {
-                //获取发射器当前状态
+                //Dapatkan status pemancar saat ini
                 val cgmStatus: CgmStatusEntity? = CgmManager.getInstance().cgmStatus
                 if (cgmStatus != null) {
                     binding.txtMessage.text = getString(R.string.content_cgm_status) + cgmStatus
@@ -165,7 +165,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                             }
 
                             override fun onSuccess() {
-                                binding.txtMessage.text = getString(R.string.content_sensor_new_succ)
+                                binding.txtMessage.text =
+                                    getString(R.string.content_sensor_new_succ)
                             }
                         })
                     }
@@ -180,7 +181,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                             }
 
                             override fun onSuccess() {
-                                binding.txtMessage.text = getString(R.string.content_sensor_old_succ)
+                                binding.txtMessage.text =
+                                    getString(R.string.content_sensor_old_succ)
                             }
                         })
                     }
@@ -214,7 +216,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                                 override fun onOtaStateChange(state: Int, isOtaSucc: Boolean) {
                                     LogUtils.error("[Demo]OTA State:$state")
                                     if (state == Constants.STATE_DFU_BEGIN) {
-                                        binding.txtMessage.text=
+                                        binding.txtMessage.text =
                                             "Memulai transfer file OTA DFU yang sedang berlangsung"
                                     } else if (state == Constants.STATE_DFU_COMPLETE) {
                                         binding.txtMessage.text =
@@ -256,7 +258,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         normalDialog.setNegativeButton(
             getString(R.string.content_cancel)
         ) { dialog, _ -> dialog.dismiss() }
-        // 显示
+        // mendemonstrasikan
         normalDialog.show()
     }
 
@@ -292,13 +294,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.txtMessage.text = "null"
         }
 
-        //增加CGM状态改变监听
+        // Menambahkan pendengar perubahan status CGM
         CgmManager.getInstance().addCgmStatusChangeListener { broadcast ->
             binding.txtMessage.text = getString(R.string.content_cgm_change) + broadcast
             if (broadcast.state === SensorStatus.SENSOR_SRTTUS_NEW) {
                 replaceFragment(NEW_SENSOR)
-               binding.llSensorNew.visibility = View.VISIBLE
-               binding.llCalibration.visibility = View.GONE
+                binding.llSensorNew.visibility = View.VISIBLE
+                binding.llCalibration.visibility = View.GONE
             } else if (broadcast.state === SensorStatus.SENSOR_SRTTUS_WARMUP) {
                 replaceFragment(WARMING_UP)
                 binding.llSensorNew.visibility = View.GONE
