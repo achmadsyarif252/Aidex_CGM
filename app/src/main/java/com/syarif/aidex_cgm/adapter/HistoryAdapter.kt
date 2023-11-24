@@ -18,7 +18,7 @@ class HistoryAdapter(var context: Context, var cgmHistory: List<GlucoseEntity>) 
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
         val history = cgmHistory[position]
-        holder.txtEventIndex.text = "设备" + history.deviceSn
+        holder.txtEventIndex.text = "installations" + history.deviceSn
         holder.txtDeviceTime.text = history.deviceTime
         holder.txtGlucose.text = if (history.glucose != null) history.glucose.toString() else ""
     }

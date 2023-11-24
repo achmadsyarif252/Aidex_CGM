@@ -11,7 +11,9 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.ParcelUuid
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -268,6 +270,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             && mFragmentManager != null
         ) {
             replaceFragment(NO_TRANSMITTER)
+            Toast.makeText(this, "ON RESUME", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -283,7 +286,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         } else {
             BluetoothAdapter.getDefaultAdapter().enable()
         }
-
         //Dapatkan nomor SN pemancar yang dipasangkan, jika tidak nol, berarti SDK telah dipasangkan dan dapat dioperasikan secara langsung. Jika nol, diperlukan pemasangan.        //For paired CGM information method
         //If return value is null,  it is not paired. For the first time, users must pair CGM via Bluetooth,  and the SDK will save the pairing information.
         val entity: CgmEntity? = CgmManager.getInstance().cgmInfo
@@ -294,8 +296,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.txtMessage.text = "null"
         }
 
+
+
         // Menambahkan pendengar perubahan status CGM
         CgmManager.getInstance().addCgmStatusChangeListener { broadcast ->
+            Toast.makeText(this, broadcast.state.toString(), Toast.LENGTH_LONG).show()
             binding.txtMessage.text = getString(R.string.content_cgm_change) + broadcast
             if (broadcast.state === SensorStatus.SENSOR_SRTTUS_NEW) {
                 replaceFragment(NEW_SENSOR)
@@ -343,6 +348,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             super.onScanResult(callbackType, result)
             //Transfer the scanned broadcast to the processing data
+            Log.d("AIDEX SCAN CALLBACK", "OKOKOKOKOKO $result")
             CgmManager.getInstance().setScanData(result)
         }
     }
